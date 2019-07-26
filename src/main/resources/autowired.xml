@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean class="com.cn.pojo.User" id="user" autowire="byType">
+        <property name="name" value="陈慧琳"/>
+        <property name="address" value="香港"/>
+
+    </bean>-->
+
+   <bean class="com.cn.pojo.User" autowire="constructor" id="user">
+         <constructor-arg name="name" value="韩红"/>
+    </bean>
+
+    <!--primary默认值为true
+    如果有多个bean，并且它将会按类型注入给其它bean,那么只能有一个primary为true
+
+    -->
+
+    <!--<bean class="com.cn.pojo.User" id="user" autowire="default">
+
+    </bean>
+-->
+    <bean class="com.cn.pojo.Pig"  name="pig2">
+          <property name="name" value="猪猪侠"/>
+    </bean>
+
+    <bean class="com.cn.pojo.Pig"  name="pig">
+          <property name="name" value="小猪猪"/>
+    </bean>
+
+    <bean class="com.cn.Service.ProviderService" id="providerService" autowire="byType">
+          <property name="providerDao" ref="providerDao"/>
+    </bean>
+
+    <bean class="com.cn.dao.ProviderDao" id="providerDao">
+
+    </bean>
+
+
+
+</beans>

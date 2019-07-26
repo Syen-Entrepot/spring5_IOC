@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean class="com.cn.pojo.People" id="people">
+    <property name="name" value="dog"/>
+    <property name="age" value="45"/>
+    <!--<property name="friends" value="cat mice"/>-->
+    <property name="friends">
+        <array>
+            <value>cat</value>
+            <value>mice</value>
+            <value>人</value>
+            <value>兔子</value>
+        </array>
+    </property>
+    <property name="nums">
+        <list>
+            <value>8</value>
+            <value>7</value>
+        </list>
+    </property>
+    <property name="cats">
+        <list>
+            <!--内部bean无法被外部所引用，所以无需id-->
+            <bean class="com.cn.pojo.Cat">
+                <property name="leg" value="2"/>
+                <property name="skin" value="蓝色"/>
+            </bean>
+            <bean class="com.cn.pojo.Cat">
+                <property name="leg" value="4"/>
+                <property name="skin" value="黑色"/>
+            </bean>
+        </list>
+
+    </property>
+
+    <property name="pigs">
+        <set>
+          <bean class="com.cn.pojo.Pig">
+              <property name="name" value="佩奇"/>
+              <property name="sleep" value="11"/>
+              <property name="kw" value="五香味"/>
+          </bean>
+            <bean class="com.cn.pojo.Pig">
+                <property name="name" value="猪猪侠"/>
+                <property name="sleep" value="18"/>
+                <property name="kw" value="椒盐味"/>
+            </bean>
+        </set>
+    </property>
+
+    <property name="users">
+        <map>
+            <entry key="user1">
+                <bean class="com.cn.pojo.User">
+                    <property name="name" value="林青霞"/>
+                    <property name="address" value="台湾"/>
+                </bean>
+            </entry>
+        </map>
+    </property>
+
+</bean>
+    
+
+</beans>
